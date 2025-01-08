@@ -1,0 +1,28 @@
+/* bugSolution.css */
+/* Correct usage of calc() */
+.container {
+  width: calc(100% - 50px);
+}
+
+.element {
+  height: calc( (100px + 20px) / 2 ); /*Spaces are crucial around operators*/
+  padding: calc( 10px + 2em ); /*Spaces are crucial around operators*/
+}
+
+/*Ensure correct unit usage*/
+.anotherElement {
+  width: calc( 100% - 50px); /* Correct: 50px is an acceptable unit */
+  width: calc( 100vw - 50px); /* Correct: 50px is an acceptable unit */
+  /* Incorrect usage; unit mismatch */
+  /*width: calc(100% - 50);*/
+}
+/*Avoid issues by using variables for intermediate values, enhancing readability and maintainability*/
+:root {
+  --element-height: 100px;
+  --element-padding: 10px;
+}
+
+.element2 {
+  height: calc( var(--element-height) / 2 + 20px);
+  padding: calc( var(--element-padding) * 2);
+}
